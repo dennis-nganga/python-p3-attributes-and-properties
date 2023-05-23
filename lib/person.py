@@ -16,4 +16,16 @@ APPROVED_JOBS = [
 ]
 
 class Person:
-    pass
+    def __init__(self, name="", job=""):
+        assert isinstance(name, str) and 0 < len(name) <= 25, "Name must be a string between 1 and 25 characters."
+        self.name = name.title()
+
+        assert isinstance(job, str), "Job must be a string."
+        assert job in Person.APPROVED_JOBS, "Job must be in the list of approved jobs."
+        self.job = job
+
+    def talk(self):
+        print("Hello, World!")
+
+    def walk(self):
+        print("The person is walking.")
